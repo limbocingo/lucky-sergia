@@ -20,13 +20,13 @@ def main(args: list[str]):
 
     if len(args) >= 2:
         if args[1] == 'start':
-            app.run()
+            app.run(debug=False)
             return 1
 
         if args[1] == 'administrator':
             username = input('* Username (Ej: Josep): ')
             password = input(
-                f'* Password (Ej: {''.join(choices(ascii_letters + digits, k=16))}): ')
+                f'* Password (Ej: {"".join(choices(ascii_letters + digits, k=16))}): ')
 
             if len(username) < 4:
                 print('Username too short.')
