@@ -14,7 +14,7 @@ from backend.app import app
 from backend.models import *
 
 
-def main(args: list[str]):
+def main(args):
     with db:
         db.create_tables([User])
 
