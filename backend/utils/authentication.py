@@ -1,7 +1,6 @@
 """
 Utilities for LuckySergia.
 
-[version: v1]
 [author: mrcingo]
 """
 import flask

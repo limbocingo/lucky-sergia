@@ -1,7 +1,6 @@
 """
 Models for LuckySergia API.
 
-[version: v1]
 [author: mrcingo]
 """
 from random import choices
@@ -22,8 +21,10 @@ class User(BaseModel):
     email = CharField(null=True)
 
     balance = IntegerField(default=100)
+    winrate = IntegerField(default=1)
 
     password = CharField()
     sid = CharField(default=''.join(choices(ascii_letters + digits, k=64)))
 
+    logged = BooleanField(default=False)
     administrator = BooleanField(default=False)

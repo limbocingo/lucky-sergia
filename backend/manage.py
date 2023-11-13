@@ -1,20 +1,21 @@
 """
 LuckySergia manager.
 
-[version: v1]
 [author: mrcingo]
 """
 import sys
+from random import choices
+from string import ascii_letters, digits
 
 import peewee
 
-sys.path.append('.')
-
-from backend.app import app
-from backend.models import *
-
 
 def main(args):
+    sys.path.append('.')
+
+    from backend.app import app
+    from backend.models import User, db
+
     with db:
         db.create_tables([User])
 

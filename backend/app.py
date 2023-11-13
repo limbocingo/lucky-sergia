@@ -1,17 +1,18 @@
 """
 LuckySergia main App.
 
-[version: v1]
 [author: mrcingo]
 """
 import flask
+import sys
 
 from backend.models import *
 from backend.utils.authentication import authenticate
-from backend.v1.user import userbp
+from backend.utils.versioning import BlueprintVersioning
 
 app = flask.Flask(__name__)
-app.register_blueprint(userbp)
+versioning = BlueprintVersioning(app)
+versioning.register()
 
 
 @app.before_request
