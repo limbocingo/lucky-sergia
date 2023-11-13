@@ -4,10 +4,10 @@ LuckySergia manager.
 [author: mrcingo]
 """
 import sys
+import peewee
+
 from random import choices
 from string import ascii_letters, digits
-
-import peewee
 
 
 def main(args):
