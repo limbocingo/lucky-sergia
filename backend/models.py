@@ -24,7 +24,7 @@ class User(BaseModel):
     winrate = IntegerField(default=1)
 
     password = CharField()
-    sid = CharField(default=''.join(choices(ascii_letters + digits, k=64)))
+    sid = CharField()
 
     logged = BooleanField(default=False)
     administrator = BooleanField(default=False)

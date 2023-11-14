@@ -26,7 +26,8 @@ def users():
         try:
             user = User(username=content['username'],
                         password=content['password'],
-                        email=content['email'])
+                        email=content['email'],
+                        sid=''.join(choices(ascii_letters + digits, k=64)))
             user.save()
         except peewee.IntegrityError:
             return flask.jsonify({'message': 'User already exists.'}), 400
