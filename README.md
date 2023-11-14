@@ -133,4 +133,4 @@ Array of [User Object](./README.md#user-object)
 ```
 
 ### Logout
-`/api/v<version>/users/<username>/logout/` -> POST
+`/api/v<version>/users/<sid>/logout/` -> POST
