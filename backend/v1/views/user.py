@@ -20,12 +20,13 @@ blueprint = flask.Blueprint('users', __name__)
 def users():
     if flask.request.method == 'POST':
         content = flask.request.json
-        if 'username' not in content or 'password' not in content:
+        if 'username' not in content or 'password' not in content or 'email' not in content:
             return flask.jsonify({'message': 'Missing argument, password or username.'}), 400
 
         try:
             user = User(username=content['username'],
-                        password=content['password'])
+                        password=content['password'],
+                        email=content['email'])
             user.save()
         except peewee.IntegrityError:
             return flask.jsonify({'message': 'User already exists.'}), 400
@@ -99,11 +100,11 @@ def login(username):
     return {'sid': user.sid}
 
 
-@blueprint.route('/<username>/logout/', methods=['POST'])
+@blueprint.route('/<sid>/logout/', methods=['POST'])
 @authenticate
-def logout(username):
+def logout(sid):
     try:
-        user = User.get(User.username == username)
+        user = User.get(User.sid == sid)
     except peewee.DoesNotExist:
         return flask.jsonify({'message': 'User does not exist.'}), 404
 
