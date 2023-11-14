@@ -21,5 +21,8 @@ def authenticate(func):
         if user.administrator == False:
             return flask.jsonify({'message': 'You are not authorized.'}), 401
 
-        return func(*args, **kwargs)
+        response =  func(*args, **kwargs)
+        response.headers['Access-Control-Allow-Origin'] = '*'
+
+        return response
     return wrapper
