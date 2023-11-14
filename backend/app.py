@@ -26,6 +26,11 @@ def after_request(response):
     return response
 
 
+@app.errorhandler(400)
+def bad_method(e):
+    return flask.jsonify({'message': 'Bad request, possibly is the JSON you sended.'}), 400
+
+
 @app.errorhandler(404)
 def bad_method(e):
     return flask.jsonify({'message': 'Unknown path.'}), 404
@@ -36,9 +41,9 @@ def bad_method(e):
     return flask.jsonify({'message': 'Method not suported.'}), 405
 
 
-@app.errorhandler(505)
+@app.errorhandler(500)
 def internal_error(e):
-    return flask.jsonify({'message': 'Internal error.'}), 505
+    return flask.jsonify({'message': 'Internal error.'}), 500
 
 
 @app.route('/api/')

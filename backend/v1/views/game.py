@@ -39,6 +39,9 @@ def crash():
        not flask.request.json.get('bet'):
         return flask.jsonify({'message': 'You did not passed the `sid`, `multiplier` or `bet` argument.'}), 400
 
+    if not isinstance(flask.request.json.get('bet'), int) or not isinstance(flask.request.json.get('multiplier'), int):
+        return flask.jsonify({'message': 'Ets gilipollas.'}), 400
+
     if flask.request.json.get('bet') < 5:
         return flask.jsonify({'message': 'Bet cannot be less than 5 coins.'})
 
@@ -66,6 +69,9 @@ def coin():
        not flask.request.json.get('bet'):
         return flask.jsonify({'message': 'You did not passed the `sid`, `choice` or `bet` argument.'}), 400
 
+    if not isinstance(flask.request.json.get('bet'), int) or not isinstance(flask.request.json.get('choice'), int):
+        return flask.jsonify({'message': 'Ets gilipollas.'}), 400
+
     if flask.request.json.get('bet') < 5:
         return flask.jsonify({'message': 'Bet cannot be less than 5 coins.'})
 
@@ -90,6 +96,9 @@ def dice():
        not flask.request.json.get('choice') or\
        not flask.request.json.get('bet'):
         return flask.jsonify({'message': 'You did not passed the `sid`, `choice` or `bet` argument.'}), 400
+
+    if not isinstance(flask.request.json.get('bet'), int) or not isinstance(flask.request.json.get('choice'), int):
+        return flask.jsonify({'message': 'Ets gilipollas.'}), 400
 
     if flask.request.json.get('bet') < 5:
         return flask.jsonify({'message': 'Bet cannot be less than 5 coins.'})
