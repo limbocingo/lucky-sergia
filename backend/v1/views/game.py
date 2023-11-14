@@ -65,7 +65,7 @@ def crash():
 @authenticate
 def coin():
     if not flask.request.json.get('sid') or\
-       not flask.request.json.get('choice') or\
+       flask.request.json.get('choice') not in [0, 1] or\
        not flask.request.json.get('bet'):
         return flask.jsonify({'message': 'You did not passed the `sid`, `choice` or `bet` argument.'}), 400
 
