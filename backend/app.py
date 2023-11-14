@@ -4,13 +4,15 @@ LuckySergia main App.
 [author: mrcingo]
 """
 import flask
-import sys
+from flask_cors import CORS
 
 from backend.models import *
 from backend.utils.authentication import authenticate
 from backend.utils.versioning import BlueprintVersioning
 
 app = flask.Flask(__name__)
+CORS(app, origins=["*"])
+
 versioning = BlueprintVersioning(app)
 versioning.register()
 

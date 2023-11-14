@@ -22,8 +22,6 @@ def authenticate(func):
                 response = flask.jsonify({'message': 'You are not authorized.'}), 401
         except peewee.DoesNotExist:
             response = flask.jsonify({'message': 'You are not authorized.'}), 401
-
-        response[0].headers['Access-Control-Allow-Origin'] = '*'
         
         return response
     return wrapper
