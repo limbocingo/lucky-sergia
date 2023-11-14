@@ -41,7 +41,8 @@ def main(args):
                 user = User.get(User.username == username)
             except peewee.DoesNotExist:
                 user = User.create(username=username,
-                                   password=password, administrator=True)
+                                   password=password, administrator=True,
+                                   sid=''.join(choices(ascii_letters + digits, k=64)))
                 
                 print('User created.')
                 print(f'    ID:       {user.id}')
