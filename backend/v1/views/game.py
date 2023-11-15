@@ -117,5 +117,6 @@ def dice():
     choice = flask.request.json.get('choice')
 
     _game = game(user, bet, 3 if choice == result else 0)
+    _game["result"] = result
 
     return _game
