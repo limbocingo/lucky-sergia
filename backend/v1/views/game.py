@@ -57,7 +57,8 @@ def crash():
     state = result >= multiplier
 
     _game = game(user, bet, multiplier if state else 0).json
-
+    _game["result"] = result
+ 
     return _game
 
 
