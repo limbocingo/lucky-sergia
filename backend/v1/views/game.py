@@ -52,7 +52,7 @@ def crash():
 
     bet = int(flask.request.json.get('bet'))
     multiplier = float(flask.request.json.get('multiplier'))
-    result = round(random.uniform(1.0, 10.0), 2)
+    result = round(random.uniform(1.0, 5.0), 2)
 
     state = result >= multiplier
 
