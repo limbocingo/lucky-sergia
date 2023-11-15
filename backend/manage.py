@@ -21,7 +21,7 @@ def main(args):
 
     if len(args) >= 2:
         if args[1] == 'start':
-            app.run(debug=False)
+            app.run(host='0.0.0.0', debug=False)
             return 1
 
         if args[1] == 'administrator':
