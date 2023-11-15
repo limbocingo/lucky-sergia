@@ -45,6 +45,9 @@ def crash():
     if flask.request.json.get('bet') < 5:
         return flask.jsonify({'message': 'Bet cannot be less than 5 coins.'})
 
+    if flask.request.json.get('multipler') > 5:
+        return flask.jsonify({'message': 'Multiplier is bigger than 5.'})
+
     try:
         user = User.get(User.sid == flask.request.json.get('sid'))
     except peewee.DoesNotExist:
