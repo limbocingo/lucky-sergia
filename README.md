@@ -1,5 +1,5 @@
 # Lucky Sergia
-Una página de apuestas muy legal.
+API para una página de apuestas. **Proyecto para portfolio.**
 
 # How to run?
 Clone the repo: 
